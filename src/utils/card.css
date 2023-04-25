@@ -1,0 +1,11 @@
+.card{
+    border: 2px solid black;
+    width: 40%;
+    margin: 80px auto;
+    background-color: rgb(4, 88, 88);
+    border-radius: 20px;
+    padding: 1rem;
+    color: aliceblue;
+    border: none;
+}
+

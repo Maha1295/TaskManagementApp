@@ -1,0 +1,17 @@
+ul {
+    list-style: none;
+    margin-left: 6rem;
+}
+.op-btn{
+    font-size: x-large;
+    min-height: 40px;
+    background-color: white;
+    border-radius: 20px;
+    border: none;
+    margin: 5px;
+    width: 60%;
+}
+
+.op-btn:hover{
+    background-color: aliceblue;
+}
