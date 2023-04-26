@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Card from "../utils/card";
 import "./login.css";
 
-const Login = () => {
+const Login = (props) => {
+
+  console.log(props)
 
   const userCredentials = {
     userName: "Maha",
@@ -33,6 +35,7 @@ const Login = () => {
       userCredentials.password === loginCredentials.password
     ) {
       navigate("/home");
+      props.setUserName(loginCredentials.userName);
     } else {
       alert("Enter Correct UserName and Password");
     }
