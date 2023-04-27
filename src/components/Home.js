@@ -2,46 +2,40 @@ import { useNavigate } from "react-router-dom";
 
 import Nav from "../utils/nav";
 import Card from "../utils/card";
-import "./home.css";
+import styles from "./home.module.css";
 
 const Home = (props) => {
-  
-  const categoryOperations = [
-    "Create Category",
-    "Load Category",
-    "List Category",
-    "Search",
-  ];
+  const homePageOptions = ["Manage Categories", "Manage Tasks"];
 
-  const navigate = useNavigate();
-
-  const onClickHandler = (event) =>{
-    console.log(event.target.value)
-    if(event.target.value === categoryOperations[0]){
-      navigate("/create-category")
-    }
-    if(event.target.value === categoryOperations[1]){
-      navigate("/load-category")
-    }
-  }
-
-  const renderCatrgoryOptions = () => {
-    const opertaions = categoryOperations.map((operation) => {
+  const renderHomePageOptions = () => {
+    const opertaions = homePageOptions.map((option) => {
       return (
-        <li>
-          <button onClick={onClickHandler} className="op-btn" value={operation}>{operation}</button>
-        </li>
+        <Card>
+          <button onClick={onClickHandler} className={styles["op-btns"]} value={option}>
+            {option}
+          </button>
+        </Card>
       );
     });
     return opertaions;
   };
 
+  const navigate = useNavigate();
+
+  const onClickHandler = (event) => {
+    console.log(event.target.value);
+    if (event.target.value === homePageOptions[0]) {
+      navigate("/manage-categories");
+    }
+    if (event.target.value === homePageOptions[1]) {
+      navigate("/manage-tasks");
+    }
+  };
+
   return (
     <>
-      <Nav>Welcome {props.userName} To Manage Task</Nav>
-      <Card>
-          <ul>{renderCatrgoryOptions()}</ul>
-      </Card>
+      <Nav loginInfo={props.loginInfo}>Welcome {props.userName} To Manage Task</Nav>
+      {renderHomePageOptions()}
     </>
   );
 };
